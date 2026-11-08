@@ -6,7 +6,7 @@ authors = [
     {name = "morusi", email = "notexist@foxmail.com"}
 ]
 readme = "README.md"
-requires-python = "~3.14"
+requires-python = ">=3.14, <4.0"
 license = "MIT"
 license-files = ["LICENSE"]
 dependencies = [
@@ -16,6 +16,14 @@ dependencies = [
 [tool.poetry]
 packages = [{include = "multi_dist", from = "src"}]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "pytest (>=9.2.0,<10.0.0)"
+]
