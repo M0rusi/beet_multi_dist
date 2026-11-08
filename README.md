@@ -47,22 +47,22 @@ meta:
     multi_dist:
         dist_1:                     # 分发版文件/目录的名称
             directory: Releases     # str: 输出文件夹，此项未配置时尝试回退到 beet 输出目录，如果均未配置，该分发版将被跳过
-            zipped: True            # bool: 是否打包为zip，默认值为 False
-            compression: deflate    # Literal['none'|'deflate'|'bzip2'|'lzma']: 压缩算法。仅 zipped 为 True 时有效。
+            zipped: true            # bool: 是否打包为zip，默认值为 false
+            compression: deflate    # Literal['none'|'deflate'|'bzip2'|'lzma']: 压缩算法。仅 zipped 为 true 时有效。
                                     # 配置为 none 表示不压缩。大小写敏感
-            compression_level: 1    # int: 压缩级别。仅 zipped 为 True 时有效。有效值范围由压缩算法决定
-            overwrite: True         # bool: 是否覆写。出于数据安全考虑，默认值为 False
-            # 如果将此项更改为True，当输出冲突时，beet会删除冲突的文件/目录
-            # 在zipped为True时，这会导致同名文件被删除。在zipped为False时，会导致整个目录被删除。
+            compression_level: 1    # int: 压缩级别。仅 zipped 为 true 时有效。有效值范围由压缩算法决定
+            overwrite: true         # bool: 是否覆写。出于数据安全考虑，默认值为 false
+            # 如果将此项更改为true，当输出冲突时，beet会删除冲突的文件/目录
+            # 在zipped为true时，这会导致同名文件被删除。在zipped为false时，会导致整个目录被删除。
         # 此项最终会生成 `Releases/dist_1.zip` 文件
 
         dist_2:                        # 支持同时配置多个分发版，各分发版配置项相互独立
             directory: "builds/dist"  # 支持嵌套路径，路径从项目根目录（beet.yml所在目录）算起
-            overwrite: True
+            overwrite: true
         # 此项最终会生成 `builds/dist/dist_2` 目录
 
         "{{ project_name }}_{{ project_version }}_portable":  # 支持模板渲染，渲染上下文为 beet 标准上下文
-            zipped: True
+            zipped: true
         # 此项最终会生成 `builds/example_1.0.0_portable.zip` 文件
 
 # 插件不改变beet的默认行为，由于上述示例中配置了output字段，beet本身会额外生成一份分发版
