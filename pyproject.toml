@@ -1,0 +1,21 @@
+[project]
+name = "multi-dist"
+version = "0.1.0"
+description = "Beet插件，提供配置化的多分发版构建机制"
+authors = [
+    {name = "morusi", email = "notexist@foxmail.com"}
+]
+readme = "README.md"
+requires-python = "~3.14"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "beet (>=0.121.2,<0.122.0)"
+]
+
+[tool.poetry]
+packages = [{include = "multi_dist", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
